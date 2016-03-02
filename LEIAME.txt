@@ -1,0 +1,126 @@
+#PHP
+O PHP pode ser na mesma versão mostrada abaixo:
+PHP 5.6.8 (cli) (built: Apr 15 2015 15:07:09)
+Copyright (c) 1997-2015 The PHP Group
+Zend Engine v2.6.0, Copyright (c) 1998-2015 Zend Technologies
+
+
+#APACHE
+Configurar o vhost conforme o arquivo apache-conf/httpd-social-media.conf
+Criar o host social-media.dev
+
+
+#MYSQL
+O banco de dados deve ser importado a partir do dump existente em dump/social-media.sql
+As configurações do banco de dados ficam em config/autoload/global.php e config/autoload/local.php
+
+
+Após as realizar as configurações, executar no Postman(aplicativo do Navegador Google Chrome) ou outro client de preferência.
+Pode ser executado no Navegador normalmente, mas a exibição dos dados não fica muito legal.
+
+#FEEDS
+Para Listar todos os Feeds:
+URL: http://social-media.dev/rest-sm/get-list
+MÉTODO: GET
+
+Para Visualizar um unico Feed:
+URL: http://social-media.dev/rest-sm/get?id=[ID]
+MÉTODO: GET
+
+Para criar um novo Feed com método POST:
+URL: http://social-media.dev/rest-sm/create
+MÉTODO: POST
+CAMPOS: post
+
+Para criar um novo Feed com método GET:
+MÉTODO: GET
+URL: http://social-media.dev/rest-sm/create?post=[TEXTO DO FEED]
+
+Para atualizar um Feed com método POST:
+URL: http://social-media.dev/rest-sm/update
+MÉTODO: POST
+CAMPOS: id, post
+
+Para atualizar um Feed  com método GET:
+URL: http://social-media.dev/rest-sm/update?id=[ID]&post=[TEXTO DO FEED]
+MÉTODO: GET
+
+Para excluir um Feed:
+URL: http://social-media.dev/rest-sm/delete?id=[ID]
+MÉTODO: GET
+
+
+#USUÁRIOS
+Para Visualizar um unico Usuário:
+URL: http://social-media.dev/rest-usr/get?id=[ID]
+MÉTODO: GET
+
+Para Listar todos os Usuários:
+URL: http://social-media.dev/rest-usr/get-list
+MÉTODO: GET
+
+Para criar um novo usuário com método GET:
+MÉTODO: GET
+URL: http://social-media.dev/rest-usr/create?name=[NOME DO USUARIO]&login=[LOGIN]&pass=[SENHA]
+
+Para criar um novo usuário com método POST:
+URL: http://social-media.dev/rest-usr/create
+MÉTODO: POST
+CAMPOS: name, login, pass
+
+Para atualizar um usuário com método POST:
+URL: http://social-media.dev/rest-usr/update
+MÉTODO: POST
+CAMPOS: id, name, login, pass
+
+Para atualizar um usuário com método GET:
+MÉTODO: GET
+URL: http://social-media.dev/rest-usr/update?id=[ID]&name=[NOME DO USUARIO]&login=[LOGIN]&pass=[SENHA]
+
+Para excluir um usuário:
+URL: http://social-media.dev/rest-usr/delete?id=[ID]
+MÉTODO: GET
+
+#FRIENDS
+Para Visualizar amigos de um usuário:
+URL: http://social-media.dev/rest-frnd/get?id=[ID]
+MÉTODO: GET
+
+Para criar uma amizade com método POST:
+URL: http://social-media.dev/rest-frnd/create
+CAMPOS: id, id_frnd
+
+Para criar uma amizade com método GET:
+MÉTODO: GET
+URL: http://social-media.dev/rest-frnd/create?id=[ID DO USUARIO]&id_frnd=[ID DO AMIGO]
+
+#STATUS
+Para Listar todos os Status de um mesmo usuário:
+URL: http://social-media.dev/rest-stts/get-list?id_user=[ID DO USUARIO]
+MÉTODO: GET
+
+Para Visualizar um unico Status de um usuário:
+URL: http://social-media.dev/rest-stts/get?id=[ID DO FEED]&id_user=[ID DO USUARIO]
+MÉTODO: GET
+
+Para criar um novo Status com método POST:
+URL: http://social-media.dev/rest-stts/create
+MÉTODO: POST
+CAMPOS: id_user, post
+
+Para criar um novo Status com método GET:
+MÉTODO: GET
+URL: http://social-media.dev/rest-stts/create?id_user=[ID DO USUARIO]&post=[TEXTO DO FEED]
+
+Para atualizar um Status com método POST:
+URL: http://social-media.dev/rest-stts/update
+MÉTODO: POST
+CAMPOS: id, id_user, post
+
+Para atualizar um Status  com método GET:
+URL: http://social-media.dev/rest-stts/update?id=[ID DO FEED]&id_user=[ID DO USUARIO]&post=[TEXTO DO FEED]
+MÉTODO: GET
+
+Para excluir um Status:
+URL: http://social-media.dev/rest-stts/delete?id=[ID]
+MÉTODO: GET
